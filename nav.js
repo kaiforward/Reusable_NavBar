@@ -1,33 +1,34 @@
 $(document).ready(function() {
 	// IF USER OPENS/RESIZES WINDOW AND #ISMOBILE IS/BECOMES ACTIVE (ON A SMALL SCREEN)
-	// MAKE MENU INVISIBLE.
+	// REMOVE MENU UNTIL USER CLICKS.
 	if($('#ismobile').is(':visible')) {
-		$(".link").addClass("noclick"); // remove pointer to links on pageload on mobile
+		$(".link").addClass("noclick"); // remove pointer to links if pageloads on mobile
 	} 
 	$( window ).resize(function() {
-		if($('#ismobile').is(':visible')) {
+	// IF USER MOVES OUTSIDE MOBILE SIZE, MENU STYLE IS CHANGED BACK TO TABLET++
+		if($('#isntmobile').is(':visible')) {
+			$("#linkbar").removeClass("transition");
 			$("#linkbar").removeClass("mobilevisible");
 			$("#linkbar").addClass("mobilehidden");
-			$(".link").addClass("noclick"); // remove pointer to links on pageload on mobile
+			$(".link").removeClass("noclick"); // add click functions back in
 		}
 		else {
-			$("#linkbar").addClass("mobilevisible");
-			$("#linkbar").removeClass("mobilehidden");		
-			$(".link").removeClass("noclick"); // add pointer to links  button on page bigger than mobile		
+			$(".link").addClass("noclick"); // remove click functions until menu button is pressed
 		}
 	});
 	// TOGGLES VISIBILITY OF LINKBAR WHEN NAVBUTTON IS CLCIKED
 	$(".navbutton").on("click", function(){
-		if($('#ismobile').is(':visible')) {
-			if ($('#linkbar').hasClass('mobilevisible')) {
-				$("#linkbar").removeClass("mobilevisible");
+		$("#linkbar").addClass("transition");
+		if($('#ismobile').is(':visible')) { // if on mobile
+			if ($('#linkbar').hasClass('mobilevisible')) { // and the menu has been opened
+				$("#linkbar").removeClass("mobilevisible"); // close menu
 				$("#linkbar").addClass("mobilehidden");
-				$(".link").addClass("noclick");
+				$(".link").addClass("noclick"); // and remove click functionality
 			}
 			else {
-				$("#linkbar").addClass("mobilevisible");
-				$("#linkbar").removeClass("mobilehidden");	
-				$(".link").removeClass("noclick");			
+				$("#linkbar").addClass("mobilevisible"); // otherwise 
+				$("#linkbar").removeClass("mobilehidden"); // open the menu
+				$(".link").removeClass("noclick");	// and return click functionality.		
 			}
 		}
 	});		

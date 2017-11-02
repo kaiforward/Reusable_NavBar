@@ -32,11 +32,16 @@ body {
 }
 
 .navbutton {
-	display: none;
+	display: flex;
+	pointer-events: none;	
+	opacity: 0;
 	font-size: 24px;
 	padding:2px;
 	border: solid 2px white;
 	border-radius: 4px;
+	transition: opacity 0.2s;
+	-webkit-transition: opacity 0.2s;
+	visibility: none;
 }
 .abslink {
 	display: flex;
@@ -94,12 +99,14 @@ body {
 	.mobilehidden {
 		visibility: none;
 		opacity: 0;
-		transition: opacity 0.2s;
-		-webkit-transition: opacity 0.2s;
 	}
 	.mobilevisible {
 		visibility: visible;
 		opacity: 1;
+		transition: opacity 0.2s;
+		-webkit-transition: opacity 0.2s;
+	}
+	.transition {
 		transition: opacity 0.2s;
 		-webkit-transition: opacity 0.2s;
 	}
@@ -115,7 +122,10 @@ body {
 		width: 100%;
 	}
 	.navbutton {
-		display: flex;
+		pointer-events: all;
+		opacity: 1;
+		transition: opacity 0.2s;
+		-webkit-transition: opacity 0.2s;
 	}
 	#linkbar {
 		width: 100%;
