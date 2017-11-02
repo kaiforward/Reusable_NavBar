@@ -1,0 +1,143 @@
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+a {text-decoration: none; color: none;}
+a:link {color: none; text-decoration: none;}
+a:-webkit-any-link { text-decoration: none; color: white; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+
+body { 
+	font-family: sans-serif; font-size: 24px;
+}
+
+#navbar {
+	display: flex;
+	flex: 1;
+	align-items: center;
+}
+
+#navblock {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 0px 10px;
+}
+
+#navtitle {
+	flex: 3;
+	line-break: strict;
+}
+
+.navbutton {
+	display: none;
+	font-size: 24px;
+	padding:2px;
+	border: solid 2px white;
+	border-radius: 4px;
+}
+.abslink {
+	display: flex;
+	position: relative;
+	width: 100%;
+}
+
+#linkbar {
+	display: flex;
+	flex: 1;
+	padding: 5px;
+}
+
+.link {
+	flex: 1;
+	padding: 5px;
+}
+
+.CC { /*chosen color*/
+	background-color: #d84c4c;
+	color: white;
+	transition: background-color 0.2s, color 0.2s;
+}
+.CClink { /*chosen color links*/
+	background-color: #d84c4c;
+	color: white;
+	transition: background-color 0.2s, color 0.2s;
+}
+.CClink:hover { /*chosen color for hovered links*/
+	background-color: white;
+	color: #d84c4c;
+}
+
+.mobilehidden {
+	display: flex;
+	visibility: visible;
+	opacity: 1;
+}
+
+.noclick {
+	pointer-events: none;
+}
+
+#ismobile {
+	display: none;
+}
+#isntmobile {
+	display: block;
+}
+
+@media only screen and (max-width: 512px) {
+	body { 
+		font-size: 12px;
+	}
+	.mobilehidden {
+		visibility: none;
+		opacity: 0;
+		transition: opacity 0.2s;
+		-webkit-transition: opacity 0.2s;
+	}
+	.mobilevisible {
+		visibility: visible;
+		opacity: 1;
+		transition: opacity 0.2s;
+		-webkit-transition: opacity 0.2s;
+	}
+	#navbar {
+		position: relative;
+	}
+	#navblock {
+		justify-content: space-around;
+	}
+	.abslink {
+		display: flex;
+		position: relative;
+		width: 100%;
+	}
+	.navbutton {
+		display: flex;
+	}
+	#linkbar {
+		width: 100%;
+		flex-direction: column;
+		position: absolute;
+	}
+	.link {
+		text-align: center;
+	}
+	#ismobile {
+		display: block;
+	}
+	#isntmobile {
+		display: none;
+	}	
+}
+
+@media only screen and (max-width: 900px) {
+	body { 
+		font-size: 18px;
+	}
+	#navbar {
+		flex-direction: column;
+	}
+}
