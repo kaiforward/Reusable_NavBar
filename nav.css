@@ -36,12 +36,11 @@ body {
 	pointer-events: none;	
 	opacity: 0;
 	font-size: 24px;
-	padding:2px;
+	padding:2px 4px;
 	border: solid 2px white;
 	border-radius: 4px;
 	transition: opacity 0.2s;
 	-webkit-transition: opacity 0.2s;
-	visibility: none;
 }
 .abslink {
 	display: flex;
@@ -63,16 +62,18 @@ body {
 .CC { /*chosen color*/
 	background-color: #d84c4c;
 	color: white;
-	transition: background-color 0.2s, color 0.2s;
 }
 .CClink { /*chosen color links*/
 	background-color: #d84c4c;
 	color: white;
 	transition: background-color 0.2s, color 0.2s;
+	-webkit-transition: background-color 0.2s, color 0.2s;
 }
 .CClink:hover { /*chosen color for hovered links*/
 	background-color: white;
 	color: #d84c4c;
+	transition: background-color 0.2s, color 0.2s;
+	-webkit-transition: background-color 0.2s, color 0.2s;
 }
 
 .mobilehidden {
@@ -97,11 +98,9 @@ body {
 		font-size: 12px;
 	}
 	.mobilehidden {
-		visibility: none;
 		opacity: 0;
 	}
 	.mobilevisible {
-		visibility: visible;
 		opacity: 1;
 		transition: opacity 0.2s;
 		-webkit-transition: opacity 0.2s;
